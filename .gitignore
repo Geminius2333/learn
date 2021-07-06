@@ -1,0 +1,8 @@
+# ignore iml
+*.iml
+*.yml
+*.properties
+# ignore target folder
+*/target/
+*.idea
+
