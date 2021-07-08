@@ -1,4 +1,4 @@
-package cn.geminius.rabbitmq.springbootrabbitmq.cofig;
+package cn.geminius.rabbitmq.springbootrabbitmq.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
