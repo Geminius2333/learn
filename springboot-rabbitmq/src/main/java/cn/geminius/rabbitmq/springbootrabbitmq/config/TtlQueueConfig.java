@@ -27,8 +27,31 @@ public class TtlQueueConfig {
     // 设置普通RoutingKey
     public static final String ROUTING_KEY_XA = "XA";
     public static final String ROUTING_KEY_XB = "XB ";
+    public static final String ROUTING_KEY_XC = "XC";
     // 死信RoutingKey
     public static final String DEAD_LETTER_ROUTING_KEY = "YD";
+
+    // 新的通用延迟队列名称
+    public static final String QUEUE_C = "QC";
+
+    // 声明QC
+    @Bean
+    public Queue queueC()  {
+        HashMap<String, Object> arguments = new HashMap<>();
+        // 设置死信交换机
+        arguments.put("x-dead-letter-exchange" ,Y_DEAD_LETTER_EXCHANGE);
+        // 设置死信RoutingKey
+        arguments.put("x-dead-letter-routing-key" ,DEAD_LETTER_ROUTING_KEY);
+        return QueueBuilder.durable(QUEUE_C).withArguments(arguments).build();
+    }
+
+    @Bean
+    public Binding queueCBindingX(@Qualifier("queueC") Queue queueC,
+                                  @Qualifier("xExchange") DirectExchange xExchange) {
+        return BindingBuilder.bind(queueC).to(xExchange).with(ROUTING_KEY_XC);
+    }
+
+
 
     // 声明xExchange
     @Bean("xExchange")
