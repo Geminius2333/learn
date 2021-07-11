@@ -4,11 +4,11 @@ package cn.geminius.rabbitmq.springbootrabbitmq.controller;
 import cn.geminius.rabbitmq.springbootrabbitmq.config.DelayQueueConfig;
 import cn.geminius.rabbitmq.springbootrabbitmq.config.TtlQueueConfig;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.amqp.core.MessagePostProcessor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
@@ -19,7 +19,8 @@ import java.time.LocalDateTime;
  * 发送延迟消息
  */
 @Slf4j
-@RestController("ttl")
+@RestController
+@RequestMapping("ttl")
 public class SendMsgController {
 
     @Autowired

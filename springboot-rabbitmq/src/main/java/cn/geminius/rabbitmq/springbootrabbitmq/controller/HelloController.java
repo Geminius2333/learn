@@ -1,6 +1,7 @@
 package cn.geminius.rabbitmq.springbootrabbitmq.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -9,9 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController("hello")
+@RequestMapping({"", "/", "hello"})
 public class HelloController {
 
-    @GetMapping("hello")
+    @GetMapping({"", "hello"})
     public String hello() {
         return "hello world";
     }
