@@ -3,3 +3,6 @@
 ### 1.RabbitMQ
 RabbitMQ是看的B站上面尚硅谷的视频
 
+### 2.Redis
+Redis还是B站上面尚硅谷的视频
+
